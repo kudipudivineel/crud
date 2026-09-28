@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crud-frontend
+  namespace: crud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crud-frontend
+  template:
+    metadata:
+      labels:
+        app: crud-frontend
+    spec:
+      containers:
+        - name: crud-frontend
+          image: 959222626282.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
+          ports:
+            - containerPort: 4200
